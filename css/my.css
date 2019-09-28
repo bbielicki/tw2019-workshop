@@ -1,0 +1,47 @@
+ body {
+  background-color: white;
+  font-family: Arial
+}
+
+img {
+      padding: 5px;
+}
+
+.header p {
+    background: black;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.footer p {
+    color: white;
+    font-size: 20px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    left: 1%;
+    righy: 1%;
+    text-align: center;
+}
+
+table {
+    background: white;
+    border-collapse: collapse;
+}
+
+td {
+ padding-right: 5px;
+ padding-left: 5px;
+}
+
+th {
+ background-color: darkgrey;
+  color: white;
+  padding-right: 5px;
+  padding-left: 5px;
+
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
