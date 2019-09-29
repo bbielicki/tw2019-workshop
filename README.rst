@@ -137,13 +137,13 @@ https://github.com/bbielicki/tw2019-app-client/blob/master/conduit/client.py
 
 ----
 
-Testy integracyjne
-------------------
+Testy integracyjne - scenariusze
+--------------------------------
 * rejestracja użytkownika
 * powtórna rejestracja użytkownika
 * pobranie informacji o zalogowanym użytkowniku
-* artykół dostępny dla niezalogowanego użytkownika
-* polubienie artykułu
+* artykuł dostępny dla niezalogowanego użytkownika
+* polubienie artykułu - ćwiczenie
 
 ----
 
@@ -165,9 +165,167 @@ Q&A
 .. note::
     * przerwa obiadowa
 
+----
+
+Testy UI
+---------
+* źródła_testów_ui_
+* z wykorzystaniem nokia_radish_bdd_extensions_ oraz _źródła_testów_integracyjnych
+
+Czego się nauczymy:
+===================
+#. trzochę teorii: BDD, Gherkin, radish, selenium, page object pattern, ...
+#. jak napisać własne testy używając radish framework
+#. poznamy kolejne funkcjonalności nokia_radish_bdd_extensions_
+#. jak odpalać testy selenium wykorzystując selenium docker image
+#. jak wygenerować raport z testów zaimplementowanych przy użyciu radish framework
+
+.. note::
+    * testy będą podobne do testów integracyjnych ale będą to testy E2E/UI wykorzystujące przeglądarkę
+
+----
+
+Behaviour-Driven Development
+============================
+**Behaviour-Driven Development** (BDD)
+    is the software development process that Cucumber was built to support.
+
+What is **BDD**?
+
+BDD is a way for software teams to work that closes the gap between business people and technical people by:
+
+* Encouraging collaboration across roles to build shared understanding of the the problem to be solved
+* Working in rapid, small iterations to increase feedback and the flow of value
+* Producing system documentation that is automatically checked against the system’s behaviour
+
+We do this by focussing collaborative work around concrete, real-world examples that illustrate how we want the system to behave. We use those examples to guide us from concept through to implementation, in a process of continuous collaboration.
+
+.. note::
+    https://cucumber.io/docs/bdd/
+
+----
+
+Gherkin
+-------
+Gherkin is a Business Readable, Domain Specific Language created especially for behavior descriptions. It gives you the ability to remove logic details from behavior tests.
+
+.. note::
+    https://docs.behat.org/en/v2.5/guides/1.gherkin.html
+    https://cucumber.io/docs/gherkin/reference/
+
+----
+
+radish
+------
+
+radish is a Behavior Driven Development tool completely written in python.
+
+Gherkin compatible
+    radish is fully compatible with cucumber's Gherkin language.
+
+Additional feature syntax
+    In addition to the fully supported Gherkin language radish supports some more functionality like: Scenario Preconditions, Scenario Loops, Variables and Expressions.
+
+Pythonic
+    radish tries to provide the most awesome pythonic experiences when implementing your steps and hooks. Your test code should be as great as your project's code.
+
+.. note::
+    http://radish-bdd.io/
+    https://radish.readthedocs.io/en/stable/tutorial.html
+
+----
+
+Front End testing
+=================
+
+selenium
+--------
+
+Selenium automates browsers. That's it! What you do with that power is entirely up to you. Primarily, it is for automating web applications for testing purposes, but is certainly not limited to just that. Boring web-based administration tasks can (and should!) be automated as well.
+
+Selenium has the support of some of the largest browser vendors who have taken (or are taking) steps to make Selenium a native part of their browser. It is also the core technology in countless other browser automation tools, APIs and frameworks.
+
+.. note::
+    https://www.seleniumhq.org
+    https://selenium-python.readthedocs.io/
+
+----
+
+selenium docker* polubienie artykułu
+
+---------------
+
+.. code::
+
+    $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59-vanadium
+    $ docker run --network host --name selenium --restart unless-stopped -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest
+
+.. note::
+    https://github.com/SeleniumHQ/docker-selenium
+
+----E2E
+
+testcontainers-python
+---------------------
+
+python-testcontainers provides capabilities to spin up a docker containers for test purposes would that be a database, Selenium web browser or any other cotainer.
+
+.. note::
+    https://github.com/testcontainers/testcontainers-python
+
+----
+
+Other selenium docker compilations
+----------------------------------
+
+* selenoid
+* zalenium
+
+
+.. note::
+    https://github.com/aerokube/selenoid
+    https://opensource.zalando.com/zalenium/
+
+----
+
+* logs attaching
+    * in case of error handling
+        * attach page source
+        * attach page screenshot
+        * attach page console logs
+    * additional logging
+
+-----
+
+Page object pattern
+-------------------
+
+Page Objects are a testing pattern for websites. Page Objects model a page on your site to provide accessors and methods for interacting with this page, both to reduce boilerplate and provide a single place for element locators.
+
+.. note::
+    https://github.com/eeaston/page-objects
+    https://pypi.org/project/page-objects/
+
+----
+
+Testy UI - scenariusze
+----------------------
+* rejestracja użytkownika
+* rejestracja użytkownika ze znakami specjalnymi
+* logowanie użytkownika
+* błędne logowanie użytkownika
+* tworzenie artykułu
+* artykuł dostępny dla niezalogowanego użytkownika - ćwiczenie
+
+----
+
+Q&A
+---
+
 
 .. _źródła_prezentacji: https://github.com/bbielicki/tw2019-workshop
 .. _realworld: https://github.com/gothinkster/realworld
 .. _źródła_aplikacji_testowej: https://github.com/bbielicki/tw2019-app
 .. _źródła_testów_integracyjnych: https://github.com/bbielicki/tw2019-app-client
 .. _nokia_radish_bdd_extensions: https://github.com/nokia/radish-bdd-extensions
+.. _źródła_testów_ui: https://github.com/dduleba/tw2019-ui-tests
