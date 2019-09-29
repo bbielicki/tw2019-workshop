@@ -74,7 +74,7 @@ Zapoznanie się z aplikacją
 * aplikacja jest skonteneryzowana
 * frontend: react + redux
 * backend: flask
-* db: postgres#/step-2
+* db: postgres
 * docker-compose
 * start-app.sh
 * stop-app.sh
